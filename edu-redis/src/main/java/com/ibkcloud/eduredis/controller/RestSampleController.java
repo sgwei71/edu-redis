@@ -23,7 +23,7 @@ public class RestSampleController {
 	@PostMapping("/getSessionValue")
 	public String getSessionValue(HttpServletRequest request) {
 		HttpSession session = request.getSession();
-		log.info("session id [{}]", session.getId());
+		System.out.println((String) session.getAttribute("key1");
 		return (String) session.getAttribute("key1");
 	}
 
@@ -31,14 +31,14 @@ public class RestSampleController {
 	@PostMapping("/getSessionId")
 	public String getSessionId(HttpSession session) {
 		session.setAttribute("key1", "abcde");
-		log.debug(session.getId());
+		System.out.println(session.getId());
 		return session.getId();
 	}
 
 	@GetMapping("/getValue")
 	public String getValue(HttpSession session) {
-		log.debug(session.getId());
-		log.debug((String) session.getAttribute("key1"));
+		System.out.println(session.getId());
+		System.out.println((String) session.getAttribute("key1"));
 		return (String) session.getAttribute("key1");
 	}
 }
